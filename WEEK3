@@ -1,0 +1,54 @@
+Q1:Write a function expanding(l) that takes as input a list of integer l and returns True if the absolute difference between each adjacent pair of elements strictly increases.
+def expanding(l):
+    pos = 1
+    while (pos < len(l)-1):
+        x = abs(l[pos] - l[pos-1])
+        y = abs(l[pos+1]- l[pos])
+        if y <= x:
+            return False
+            
+        pos = pos+1
+    else:
+        return True
+
+Q2:Write a Python function sumsquare(l) that takes a nonempty list of integers and returns a list [odd,even],
+where odd is the sum of squares all the odd numbers in l and even is the sum of squares of all the even numbers in l.
+
+def sumsquare(l):
+    if len(l) == 0:
+        return()
+    else:
+        sum_odd = 0
+        sum_even = 0
+        for i in l:
+            if i%2 == 0:
+                sum_even += i*i
+            else:
+                sum_odd += i*i 
+        return ([sum_odd, sum_even])  
+
+Q3:Write a Python function transpose(m) that takes as input a two dimensional matrix m and returns the transpose of m.
+
+def transpose(l):
+    row = len(l)
+    col = len(l[0])
+    new_list = [[0 for i in range(row)] for j in range(col)]
+    for i in range(len(new_list)):
+        for j in range(len(new_list[0])):
+            new_list[i][j] = l[j][i]
+    return new_list      
+
+
+
+
+
+
+
+
+
+
+
+
+
+The argument m should remain undisturbed by the function.
+
