@@ -1,0 +1,29 @@
+Q.Write a function shuffle(l1,l2) that takes as input two lists, 11 and l2, and returns a list consisting of the first element in l1, 
+then the first element in l2, then the second element in l1, then the second element in l2,
+and so on. If the two lists are not of equal length, the remaining elements of the longer list are appended at the end of the shuffled output.
+
+
+SOLUTION:
+
+
+
+def shuffle(l1,l2):
+    i=0
+    j=0
+    l=len(l1)
+    m=len(l2)
+    new_list = []
+    while (i+j <l+m ):
+        if i == l:
+            new_list.append(l2[j]) 
+            j+=1
+        elif j == m:
+            new_list.append(l1[i])
+            i+=1
+        else:
+            new_list.append(l1[i])
+            i+=1
+            new_list.append(l2[j])
+            j+=1
+    return new_list        
+                  
