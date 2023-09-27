@@ -1,0 +1,46 @@
+Q1.Write a Python function histogram(l) that takes as input a list of integers with repetitions and returns a list of pairs as follows:.
+for each number n that appears in l, there should be exactly one pair (n,r) in the list returned by the function, where r is the number of repetitions of n in l.
+the final list should be sorted in ascending order by r, the number of repetitions. For numbers that occur with the same number of repetitions,
+arrange the pairs in ascending order of the value of the number.
+
+SOLUTION:
+def histogram(l):
+    new_dict = {}
+    for i in l:
+        if i in new_dict.keys():
+            new_dict[i]+=1
+        else:
+            new_dict[i] = 1
+            
+    x = list(new_dict.keys())  
+    x.sort()
+    list_tup = []
+    for i in x:
+        list_tup.append((i, new_dict[i]))
+    list_tup.sort(key = lambda x:x[1])     
+    return (list_tup) 
+  
+def transcript(coursedetails,studentdetails,grades):
+    new_roll_grade = {}
+    new_transcript = []
+    course_deta_dict = {}
+    for i in coursedetails:
+        course_deta_dict[i[0]] = i[1]
+        
+    
+    for i in grades:
+        if i[0] in new_roll_grade.keys():
+            new_roll_grade[i[0]].append((i[1],course_deta_dict[i[1]], i[2]))
+        else:
+            new_roll_grade[i[0]] =[(i[1],course_deta_dict[i[1]], i[2])]
+             
+    for i in studentdetails:
+        if i[0] in new_roll_grade.keys():
+            new_transcript.append((i[0],i[1],new_roll_grade[i[0]]) )
+            
+            
+    new_transcript.sort(key = lambda x: x[0])  
+        
+            
+        
+    return (new_transcript)  
